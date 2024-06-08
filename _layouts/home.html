@@ -1,0 +1,65 @@
+---
+layout: default
+---
+
+<div class="home">
+
+    <h1>{{ site.course_name }} <span style="font-size: 20px;color: #0006;">/ {{ site.course_semester }} </span></h1>
+
+    {% include announcements.html %}
+    <br />
+
+    <h2>Course Description</h2>
+    <p>{{ site.course_description }}</p>
+
+    {{ content }}
+
+    <br>
+    <div class="profile-container">
+        <div class="profile-pic-gallary">
+            <h2>Organizers</h2>
+            {% for ins in site.data.people.organizers %}
+            <div class="image--cover-container">
+                <img src="{{ins.profile_pic | prepend: site.baseurl }}" class="image--cover">
+                {% if ins.webpage %}
+                <p><a href="{{ ins.webpage }}">{{ins.name}}</a></p>
+                {% else %}
+                <p>{{ins.name}}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="profile-pic-gallary">
+            <h2>Speakers</h2>
+            {% for ta in site.data.people.speakers %}
+            <div class="image--cover-container">
+                <img src="{{ta.profile_pic | prepend: site.baseurl }}" class="image--cover">
+                {% if ta.webpage %}
+                <p><a href="{{ ta.webpage }}">{{ta.name}}</a></p>
+                {% else %}
+                <p>{{ta.name}}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if site.data.contacts and site.data.contacts.size > 0 %}
+    <h2>Contacts</h2>
+    <ul class="contacts">
+    {% for contact in site.data.contacts %}
+    <li>
+      <strong>{{ contact.name }}</strong><br>
+      {{ contact.role }}<br>
+      {{ contact.group }}<br>
+      {{ contact.institution }}<br>
+      Address: {{ contact.address }}<br>
+      Website: <a href="{{ contact.website }}">{{ contact.website }}</a><br>
+      Twitter: <a href="https://twitter.com/{{ contact.twitter }}">{{ contact.twitter }}</a>
+    </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+</div>

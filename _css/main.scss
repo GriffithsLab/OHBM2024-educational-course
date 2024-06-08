@@ -1,0 +1,94 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+$header-background-invert: 0%;
+@import "user_vars";
+
+// Our variables
+$base-font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+$base-font-size:   .95em;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      $primary-color;
+// $gameday-sky: #109dc0;
+$clemson-purple:      $header-color;
+$clemson-orange:      $accent-color;
+
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+
+// Width of the content area
+$content-width:    950px;
+
+$on-palm:          600px;
+$on-laptop:        950px;
+
+
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "header",
+	    "mobile-header",
+        "base",
+        "layout",
+        "syntax-highlighting",
+	    "fancy-image"
+;
+
+/* Add the new styles for the profile container */
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.profile-pic-gallary {
+    flex: 1 1 45%; /* Adjust the width as needed */
+    margin: 10px;
+}
+
+.image--cover-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image--cover {
+    border-radius: 50%;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    object-fit: cover;
+}
+
+.contacts {
+    list-style: none;
+    padding: 0;
+}
+
+.contacts li {
+    margin-bottom: 10px;
+}
