@@ -5,7 +5,7 @@ course_semester: "OHBM 2024"
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
 - jekyll-remote-theme
-baseurl: "/OHBM2024-whole-brain-modelling-course" # the subpath of your site, e.g. /blog/
+baseurl: "/OHBM2024-educational-course" # the subpath of your site, e.g. /blog/
 url: "https://griffithslab.github.io/" # the base hostname & protocol for your site
 
 schoolname: "Whole-brain, Connectome-based Models of Brain Dynamics: From Principles to Applications"
